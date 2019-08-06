@@ -6,8 +6,8 @@ all:db_test blog_server
 db_test:db_test.cc db.hpp
 	g++ db_test.cc -o db_test $(FLAG)
 
-blog_server:blog_server.cc
-	g++ blog_server.cc httplib.h -o blog_server $(FLAG)
+blog_server:blog_server.cc httplib.h
+	g++ blog_server.cc -o blog_server $(FLAG)
 
 .PHONY:clean
 clean:

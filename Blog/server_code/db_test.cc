@@ -15,26 +15,26 @@ void TestBlogTable(){
   Json::StyledWriter writer;
   MYSQL* mysql = MySQLInit();
 
-  //Json::Value blog;
-  //blog["title"] = "初识 C 语言";
-  //std::string content;
-  ////FileUtil::ReadFile("./test_data/1.md", &content);
-  //blog["content"] = "早睡早起身体好";
-  ////blog["content"] = content;
-  //blog["tag_id"] = 3;
-  //blog["create_time"] = "2019/7/28 07:35";
-
-  //std::cout << "=================================================测试插入==========================================" << std::endl;
-  //BlogTable blog_table(mysql);
-  //ret = blog_table.Insert(blog);
-  //std::cout << "Insert" << ret << std::endl;
-
-  //std::cout << "=================================================测试查找==========================================" << std::endl;
-  //BlogTable blog_table(mysql);
-  //Json::Value blogs;
-  //ret = blog_table.SelectAll(&blogs);
-  //std::cout << "selectAll:" << ret << std::endl << writer.write(blogs) << std::endl;
-  
+  Json::Value blog;
+  blog["title"] = "鸡汤";
+  std::string content;
+  //FileUtil::ReadFile("./test_data/1.md", &content);
+  blog["content"] = "每天早睡早起身体好";
+  //blog["content"] = content;
+  blog["tag_id"] = 2;
+  blog["create_time"] = "2019/8/1 07:35";
+  std::cout << writer.write(blog) << std::endl;
+//  std::cout << "=================================================测试插入==========================================" << std::endl;
+//  BlogTable blog_table(mysql);
+//  ret = blog_table.Insert(blog);
+//  std::cout << "Insert" << ret << std::endl;
+//
+ //std::cout << "=================================================测试查找==========================================" << std::endl;
+ //BlogTable blog_table(mysql);
+ //Json::Value blogs;
+ //ret = blog_table.SelectAll(&blogs);
+ //std::cout << "selectAll:" << ret << std::endl << writer.write(blogs) << std::endl;
+ 
   //std::cout << "=================================================测试更新==========================================" << std::endl;
   //BlogTable blog_table(mysql);
   //Json::Value blog;
@@ -49,15 +49,16 @@ void TestBlogTable(){
   //ret = blog_table.SelectOne(1, &blog_out);
   //std::cout << "SelectOne" << ret << std::endl << writer.write(blog_out) << std::endl;
   
-  std::cout << "=================================================测试删除=========================================" << std::endl;
-  BlogTable blog_table(mysql);
-  int blog_id = 1;
-  blog_table.Delete(blog_id);
-  std::cout << "Delete" << std::endl;
-
-  MySQLRelease(mysql);
+//  std::cout << "=================================================测试删除=========================================" << std::endl;
+//  BlogTable blog_table(mysql);
+//  int blog_id = 1;
+//  blog_table.Delete(blog_id);
+//  std::cout << "Delete" << std::endl;
+//
+//  MySQLRelease(mysql);
+//}
+//
 }
-
 void TestTagTable(){
   bool ret = false;
   Json::StyledWriter writer;
@@ -66,20 +67,23 @@ void TestTagTable(){
 
   //std::cout << "========================================================测试插入====================================" << std::endl;
   //Json::Value tag;
-  //tag["tag_name"] = "C++";
+  //tag["tag_name"] = "Java";
   //ret = tag_table.Insert(tag);
   //std::cout << "Insert:" << ret << std::endl;
-  //std::cout << "========================================================测试查看===================================" << std::endl;
-  //Json::Value tags;
-  //ret = tag_table.SelectAll(&tags);
-  //std::cout << "SelectAll: " << ret << std::endl << writer.write(tags) << std::endl;
+  std::cout << "========================================================测试查看===================================" << std::endl;
+  Json::Value tags;
+  ret = tag_table.SelectAll(&tags);
+  std::cout << "SelectAll: " << ret << std::endl << writer.write(tags) << std::endl;
   //std::cout << "========================================================测试删除===================================" << std::endl;
-  ret = tag_table.Delete(1);
-  std::cout << "Delete: " << ret << std::endl;
-  MySQLRelease(mysql);
+ // ret = tag_table.Delete(1);
+ // std::cout << "Delete: " << ret << std::endl;
+ // MySQLRelease(mysql);
+
 }
+
 int main(){
-  //TestBlogTable();
-  TestTagTable();
+  TestBlogTable();
+  //TestTagTable();
+
   return 0;
 }
