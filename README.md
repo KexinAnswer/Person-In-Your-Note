@@ -1,4 +1,12 @@
+<ul class="am-nav am-nav-pills">
+    <li class="am-active"> 🖱️<span>&nbsp</span> <a href="#">首页</a></li>
+  <li>📚 <a href="https://blog.csdn.net/qq_41595735/article/details/98639866">项目分析</a></li>
+  <li>❤️ <a href="http://47.95.141.253:9092/index.html">作品展示</a>
+</li>
+</ul>
+
 # Person In Your Note
+
 基于C++的网页版备忘录系统
 
 ## 开发环境和编程语言
@@ -32,3 +40,10 @@
 
 - 编写测试用例
 - Postman 检测请求和响应是否正确
+
+## 待开发模块
+
+- 图床系统（用户可以上传图片）
+- 多用户系统（每个用于可以有独立的隐私备忘录）
+- 提醒功能(备忘录中可以设置提醒时间)
+- 未来邮件功能(备忘录可以以邮件的方式选定未来的时间发送给某人)
