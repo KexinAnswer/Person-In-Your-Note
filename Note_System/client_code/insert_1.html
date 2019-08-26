@@ -30,15 +30,8 @@
    #div_insert{
      margin: 0 0 30px 0;
    }  
-   #tag_list{
-        padding: 0 70px 0 70px;
-   }
-   #subm{
-        padding: 0 70px 0 70px;
-   }
 </style>
 </head>
-
 <body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
      <div id="app">
@@ -92,7 +85,7 @@
           <!--标题框-->
         <div class="am-form">   
         <div class="am-form-group">
-            <label for="doc-ipt-email-1">博客标题</label>
+            <label for="doc-ipt-email-1">标题</label>
             <input type="text" class="" id="blog_title" >
         </div>
         </div>
@@ -100,23 +93,18 @@
                <!-- 先使用 editor.md 完成 markdown 到 html 的转换-->
                <textarea></textarea>
           </article>
+          <button type="button" class="am-btn am-btn-success am-round" v-on:click="insert_blog()" onclick="location.href='admin.html'">提交</button>
+          <button type="button" class="am-btn am-btn-success am-round" v-on:click="back()" onclick="location.href='admin.html'">返回</button>
      </div>
-     <div class="container" id="tag_list">
-     <div class="blog-clear-margin blog-sidebar-widget blog-bor am-g " >
+     <div class="blog-clear-margin blog-sidebar-widget blog-bor am-g ">
           <h2 class="blog-title"><span>Choose Tag</span></h2>
           <div class="am-u-sm-12 blog-clear-padding">
-               <div class="am-btn-group am-round am-fl" v-for="tag in tags" v-on:click="get(tag.tag_id,$event)">
-                    <button type="button" class="am-btn am-btn-default">{{tag.tag_name}}</button>
-               </div>
+               <a  class="blog-tag" v-for="tag in tags" v-on:click="get(tag.tag_id,$event)">{{tag.tag_name}}</a>
+     
           </div>
      </div>
-     </div>
-     <div class="container" id="subm">
-          <button type="button" class="am-btn am-btn-success am-round am-fl" v-on:click="insert_blog()" onclick="location.href='admin.html'">提交</button>
-          <button type="button" class="am-btn am-btn-success am-round am-fl" v-on:click="back()" onclick="location.href='admin.html'">返回</button>
-     </div>
-          
-</section>
+     </section>
+
 
 <!-- WORK SECTION -->
 
@@ -124,17 +112,17 @@
 <section id="contact" v-show="status == 'blog_list'">
      <div class="container">
           <div class="row">
-
+>
 
                <div class="col-md-12 col-sm-12">
                      <!-- CONTACT FORM HERE -->
-                    Thank you for enjoying&nbsp<a  target="_blank" title="张宇航">©&nbspZYH_2019-7-31</a> - Way To Blogs <a href="https://mp.csdn.net/" title="博客" target="_blank">CSDN</a>
+
+                    More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
                </div>
 
           </div>
      </div>
 </section>
-
 </div>
 
 
@@ -160,20 +148,8 @@
 <script src="editor.md/lib/jquery.flowchart.min.js"></script>
 
 <script src="editor.md/editormd.js"></script>
+
 <script>
-     $(function () {
-          $('#doc-confirm-toggle').on('click', function () {
-               $('#my-confirm').modal({
-                    relatedElement: this,
-                    onConfirm: function () {
-                         alert('你是猴子派来的逗比!')
-                    },
-                    onCancel: function () {
-                         alert('你不确定是不是猴子派来的逗比!')
-                    }
-               });
-          });
-     });
      var app = new Vue({
           el: '#app',  // el 表示 app 这个 Vue 对象和哪个 HTML 元素关联上
           data: {

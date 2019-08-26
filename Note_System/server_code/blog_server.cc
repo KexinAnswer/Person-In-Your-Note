@@ -1,8 +1,11 @@
 #include <signal.h>
+#include <string.h>
 #include "db.hpp"
 #include "httplib.h"
 
 MYSQL* mysql = NULL;
+
+
 
 int main(){
   using namespace httplib;
@@ -16,6 +19,7 @@ int main(){
   // 2. 创建相关数据库处理对象
   BlogTable blog_table(mysql);
   TagTable tag_table(mysql);
+  Passwd passwd(mysql);
   // 3. 创建扶服务器 , 并设置 "路由"(HTTP服务器中的路由，
   // 和 IP协议的路由不一样) 此处的路由指的是把 方法 + path ->
   // 哪个处理函数 关联相关声明
@@ -205,7 +209,7 @@ int main(){
       });
   // 新增标签
   server.Post("/tag", [&tag_table](const Request& req, Response& resp){
-      std::cout << "新增标签" << std::endl;
+    std::cout << "新增标签" << std::endl;
     Json::Reader reader;
     Json::FastWriter writer;
     Json::Value req_json;
@@ -252,7 +256,7 @@ int main(){
     bool ret = tag_table.Delete(tag_id);
     if(!ret){
       resp_json["ok"] = false;
-      resp_json["resson"] = "Insert Failed!\n";
+      resp_json["reason"] = "Delete tag Failed!\n";
       resp.status = 500;
       resp.set_content(writer.write(resp_json), "application/json");
       std::cout << "错误返回码" << std::endl << writer.write(resp_json) << std::endl << resp.status << std::endl;
@@ -263,7 +267,7 @@ int main(){
     return;
       });
   // 获取所有标签
-  server.Get("/tag", [&tag_table](const Request &req, Response& resp) {
+  server.Get("/tag", [&tag_table](const Request& req, Response& resp) {
     Json::Value resp_json;
     Json::FastWriter writer;
     Json::Reader reader;
@@ -272,13 +276,64 @@ int main(){
     if (!ret)
     {
       resp_json["ok"] = false;
-      resp_json["resson"] = "Insert Failed!\n";
+      resp_json["reason"] = "Get tags Failed!\n";
       resp.status = 500;
       resp.set_content(writer.write(resp_json), "application/json");
       std::cout << "错误返回码" << std::endl << writer.write(resp_json) << std::endl << resp.status << std::endl;
       return;
     }
     resp.set_content(writer.write(tags), "application/json");
+    return;
+  });
+
+  
+  server.Post("/login", [&passwd](const Request& req, Response& resp){
+    std::cout << "登录" << std::endl;
+    Json::Reader reader;
+    Json::FastWriter writer;
+    Json::Value req_json;
+    Json::Value resp_json;
+    bool ret = reader.parse(req.body, req_json);
+    if(!ret){
+      resp_json["ok"] = false;
+      resp_json["reason"] = "PassWord Parse request Failed!\n";
+      resp.status = 400;
+      resp.set_content(writer.write(resp_json), "application/json");
+      std::cout << "请求信息输入有误" << std::endl;
+      return;
+    }
+    std::cout << "获取信息成功" << std::endl;
+    // 校验信息
+    if(req_json["username"].empty()
+    || req_json["userpasswd"].empty()){
+      resp_json["ok"] = false;
+      resp_json["reason"] = "Request has no username or passewd or dish!\n";
+      resp.status = 400;
+      resp.set_content(writer.write(resp_json), "application/json");
+      std::cout << "信息输入有误" << std::endl;
+      return;
+    }
+    std::cout << "信息校验正确" << std::endl;
+    ret = passwd.Select(&resp_json,req_json["username"].asCString());
+    if(!ret){
+      resp_json["ok"] = false;
+      resp_json["reason"] = "Insert Failed!\n";
+      resp.status = 500;
+      resp.set_content(writer.write(resp_json), "application/json");
+      std::cout << "查找密码失败" << std::endl;
+      return;
+    }
+    std::cout << "查找成功" << std::endl;
+      std::cout << "req_json : username -> " << req_json["userpasswd"].asCString() << std::endl;
+      std::cout << "resp_json : username -> " << resp_json["userpasswd"].asCString() << std::endl;
+    if(strcmp(req_json["userpasswd"].asCString() , resp_json["userpasswd"].asCString()) == 0){
+      resp_json["ok"] = true;
+      resp.set_content(writer.write(resp_json), "application/json");
+    }else{
+      resp_json["ok"] = false;
+      resp_json["reason"] = "密码不正确\n";
+      resp.set_content(writer.write(resp_json), "application/json");
+    }
     return;
   });
   // 设置静态文件目录

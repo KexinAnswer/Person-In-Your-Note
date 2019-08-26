@@ -81,9 +81,24 @@ void TestTagTable(){
 
 }
 
-int main(){
-  TestBlogTable();
-  //TestTagTable();
 
+
+void TestPasswd(){
+  bool ret = false;
+  Json::StyledWriter writer;
+  MYSQL* mysql = MySQLInit();
+  Passwd passwd(mysql);
+
+  std::cout << "========================================================测试查看===================================" << std::endl;
+  Json::Value pwd;
+  ret = passwd.Select(&pwd,"UnglyBoy");
+  std::cout << "Select Passwd" << ret << std::endl << writer.write(pwd) << std::endl;
+
+}
+
+int main(){
+  // TestBlogTable();
+  // TestTagTable();
+  TestPasswd();
   return 0;
 }

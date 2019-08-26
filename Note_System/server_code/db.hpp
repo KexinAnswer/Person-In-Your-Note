@@ -318,6 +318,11 @@ class BlogTable{
     MYSQL* mysql_;
 };
 
+MYSQL* RebootSQL(MYSQL* mysql){
+  MySQLRelease(mysql);
+  return MySQLInit();
+}
+
 class TagTable{
   public:
     TagTable(MYSQL* mysql):mysql_(mysql){  }
@@ -328,6 +333,10 @@ class TagTable{
       int ret = mysql_query(mysql_,sql);
       if(ret != 0){
         printf("获取结果失败! 1 %s\n", mysql_error(mysql_));
+        // 重启数据库 解决mysql has gone away
+        //MYSQL* newSQL = RebootSQL(mysql_);
+         //mysql_ = newSQL;
+        
         return false;
       }
       MYSQL_RES* result = mysql_store_result(mysql_);
@@ -373,4 +382,39 @@ class TagTable{
 
   private:
     MYSQL* mysql_;
+};
+
+class Passwd{
+public:
+  // bool SelectAll(Json::Value* blogs, const std::string& tag_id = ""){
+
+  Passwd(MYSQL* mysql):mysql_(mysql){  }
+  bool Select(Json::Value* passwd, const std::string& username = "" ){
+      char sql[1024 * 4] = {0}; 
+      sprintf(sql,"select userpasswd  from passwd_table where username = '%s'", username.c_str());
+      printf("sql:%s\n",sql);
+      int ret = mysql_query(mysql_,sql); 
+      if(ret != 0){
+        printf("执行 sql 失败!%s \n", mysql_error(mysql_));
+        return false;
+      }
+      MYSQL_RES* result = mysql_store_result(mysql_);
+      if(result == NULL){
+        printf("获取结果失败! %s\n", mysql_error(mysql_));
+        return false;
+      }
+      int rows = mysql_num_rows(result);
+      if(rows != 1){
+        printf("查找结果不止 1 条。 rows = %d", rows);
+        return false;
+      }
+      MYSQL_ROW row = mysql_fetch_row(result);
+      (*passwd)["userpasswd"] = row[0];
+      
+      printf("查找成功！\n");
+      return true;
+  }
+
+private:
+  MYSQL* mysql_;
 };
