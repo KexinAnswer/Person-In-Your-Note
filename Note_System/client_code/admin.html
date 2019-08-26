@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<title>Person In Your Note</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="Personal Website Template">
+<meta name="keywords" content="Personal, Website Template, Minimal HTML Template, Freelancer">
+<meta name="author" content="khai tawng">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+
+<!-- amazyi css-->
+<link rel="stylesheet" href="amazeui.min.css">
+<link rel="stylesheet" href="app.css">
+<!-- editor-->
+<link rel="stylesheet" href="editor.md/css/editormd.css" />
+
+<!-- Main css -->
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+   #div_insert{
+     margin: 0 0 30px 0;
+   }  
+</style>
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+     <div id="app">
+<!-- PRE LOADER -->
+<div class="preloader">
+     <div class="spinner">
+          <span class="spinner-rotate"></span>
+     </div>
+</div>
+
+
+<!-- NAVIGATION SECTION -->
+<div class="navbar custom-navbar navbar-fixed-top" role="navigation">
+     <div class="container">
+
+          <div class="navbar-header">
+               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+               </button>
+               <!-- lOGO TEXT HERE -->
+               <a href="index.html" class="navbar-brand">To User</a>
+          </div>
+
+          <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                    <li><a class="smoothScroll" href="#home">Home</a></li>
+                    <li><a class="smoothScroll" href="#about">About Me</a></li>
+                    <li><a class="smoothScroll" href="#work">My Works</a></li>
+                    <li><a class="smoothScroll" href="#contact">Blog</a></li>
+               </ul>
+          </div>
+
+     </div>
+</div>
+
+
+<!-- HOME SECTION -->
+<section id="home" v-show="status == 'blog_list'" >
+
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-offset-1 col-md-2 col-sm-3">
+                    <img src="images/white_dog.jpg" class="wow fadeInUp img-responsive img-circle" data-wow-delay="0.2s" alt="about image">
+               </div>
+
+               <div class="col-md-8 col-sm-8">
+                    <h1 class="wow fadeInUp" data-wow-delay="0.6s">Hey there, My name is ZYH and You can write down the person you have the deepest in your heart here.</h1>
+                    <a href="#list" class="wow fadeInUp btn btn-default section-btn " data-wow-delay="1s">View Note</a>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!--<div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>-->
+<!-- ABOUT SECTION -->
+<section id="about" v-show="status == 'blog_list'">
+     <div class="container">
+
+          <div class="row">
+
+               <div class="col-md-8 col-sm-12">
+
+                    <div class="about-thumb">
+                         <div class="wow fadeInUp section-title" data-wow-delay="0.6s">
+                              <h2>A Little Bit Of Me</h2>
+                              <p><strong>姓&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名:&nbsp&nbsp张宇航<br/>
+                                   专&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp业:&nbsp&nbsp计算机科学与技术<br/>
+                                   擅长语言:&nbsp&nbspC/C++<br/>
+                                   爱&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp好:&nbsp&nbsp篮球</strong></p>
+                         </div>
+                         <div class="wow fadeInUp" data-wow-delay="0.8s">
+                              <p></p>
+                         </div>
+                         <ul class="social-icon">
+                              <li class="wow fadeInLeft" data-wow-delay="1s"><a href="#" class="fa fa-twitter"></a></li>
+                              <li class="wow fadeInUp" data-wow-delay="1.2s"><a href="#" class="fa fa-linkedin"></a></li>
+                              <li class="wow fadeInRight" data-wow-delay="1.4s"><a href="#" class="fa fa-dribbble"></a></li>
+                              <li class="wow fadeInDown" data-wow-delay="1.6s"><a href="https://github.com/KexinAnswer" class="am-icon-btn am-icon-github am-btn-icon"></a></li>
+                         </ul>
+                    </div>
+               </div>
+
+               <div class="col-md-4 col-sm-12">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                         <h2>My life</h2>
+                    </div>
+
+                    <div class="wow fadeInUp" data-wow-delay="0.6s">
+                         <a href="https://www.instagram.com/p/cqED9yjN0j/">
+                              <img src="images/instagram-image1.jpg" class="img-responsive" alt="instagram image">
+                         </a>
+
+                         <a href="https://www.instagram.com/p/enL0SsDN51/">
+                              <img src="images/instagram-image2.jpg" class="img-responsive" alt="instagram image">
+                         </a>
+
+                         <a href="https://www.instagram.com/p/apOuRTDNwJ/">
+                              <img src="images/instagram-image3.jpg" class="img-responsive" alt="instagram image">
+                         </a>
+
+                         <a href="https://www.instagram.com/p/ZXIj33jN2v/">
+                              <img src="images/instagram-image4.jpg" class="img-responsive" alt="instagram image">
+                         </a>
+
+                         <a href="https://www.instagram.com/p/Xwev1FjN9-/">
+                              <img src="images/instagram-image5.jpg" class="img-responsive" alt="instagram image">
+                         </a>
+                    </div>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+
+<!-- SKILL SECTION -->
+<div  id="list">
+<section id="skill">
+     <div class="container" v-show="status == 'blog_list'">
+
+          <div id="div_insert">
+               <input type="button" class="am-btn am-btn-secondary btn-loading-example" value="新增博客" data-am-loading="{loadingText: '努力加载中...'}" onclick="location.href='insert.html'" />
+
+          </div>
+          <div class="row" v-for="blog in blogs">
+
+               <div class="col-md-4 col-sm-6">
+                    <div class="wow fadeInUp section-title" data-wow-delay="0.2s">
+                         <h2 >{{blog.title}}</h2>
+                         <p >{{tag_id2name(blog.tag_id)}}</p>
+                         <button type="button" class="am-btn am-btn-warning am-round" v-on:click="delete_blog(blog.blog_id)">删除</button>
+                         <button type="button" class="am-btn am-btn-primary am-round" v-on:click="edit_blog(blog.blog_id)">编辑</button>
+                    </div>
+               </div>
+
+               <div class="col-md-offset-1 col-md-6 col-sm-6">
+                    <div class="skill-thumb">
+
+                         <div class="wow fadeInUp time" data-wow-delay="1s">
+                              <img src="images/时间.png" class="img-responsive" alt="instagram image" height="25" width="25">
+                                   <span >{{blog.create_time}}</span>
+                                        <!--<div class="progress">
+                                             <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
+                                        </div>-->
+                         </div>
+
+
+
+                         <div class="wow fadeInUp time" data-wow-delay="1.4s">
+                                        <div class="progress">
+                                        </div>
+                         </div>
+
+                    </div>
+               </div>
+               
+               <hr data-am-widget="divider"  class="am-divider am-divider-default" />
+               
+          </div>
+     </div>
+     <!-- 编辑博客窗口-->
+     <div class="container" v-show="status == 'blog_edit'">
+          <!--标题框-->
+        <div class="am-form">   
+        <div class="am-form-group">
+            <label for="doc-ipt-email-1">博客标题</label>
+            <input type="text" class="" id="doc-ipt-email-1"  v-model="blog.title">
+        </div>
+        </div>
+          <article id="blog_view">
+               <!-- 先使用 editor.md 完成 markdown 到 html 的转换-->
+               <textarea>{{blog.content}}</textarea>
+          </article>
+          <button type="button" class="am-btn am-btn-success am-round" v-on:click="update_blog(blog.blog_id)" >提交</button>
+          <button type="button" class="am-btn am-btn-success am-round" v-on:click="back()" >返回</button>
+     </div>
+
+</section>
+</div>
+
+
+<!-- WORK SECTION -->
+
+
+
+<!-- CONTACT SECTION -->
+<section id="contact" v-show="status == 'blog_list'">
+     <div class="container">
+          <div class="row">
+
+
+
+               <div class="col-md-12 col-sm-12">
+                     <!-- CONTACT FORM HERE -->
+
+                    Thank you for enjoying&nbsp<a  target="_blank" title="张宇航">©&nbspZYH_2019-7-31</a> - Way To Blogs <a href="https://mp.csdn.net/" title="博客" target="_blank">CSDN</a>
+               </div>
+
+          </div>
+     </div>
+</section>
+</div>
+
+
+
+<!-- SCRIPTS -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/magnific-popup-options.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/custom.js"></script>
+<!-- vue 链接-->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<!--editor 链接-->
+<script src="editor.md/lib/marked.min.js"></script>
+<script src="editor.md/lib/prettify.min.js"></script>
+<script src="editor.md/lib/raphael.min.js"></script>
+<script src="editor.md/lib/underscore.min.js"></script>
+<script src="editor.md/lib/sequence-diagram.min.js"></script>
+<script src="editor.md/lib/flowchart.min.js"></script>
+<script src="editor.md/lib/jquery.flowchart.min.js"></script>
+
+<script src="editor.md/editormd.js"></script>
+
+<script>
+     var app = new Vue({
+          el: '#app',  // el 表示 app 这个 Vue 对象和哪个 HTML 元素关联上
+          data: {
+               // data表示所有需要在页面上动态变化的数据
+               // 把 js 中的数据和界面上的内容关联在一起，数据绑定的过程
+               author: 'KeXin',
+               blogs: [
+               ],
+               tags: [
+               ],
+               // blog 对象用来保存当前页面上展示的博客的详细内容
+               blog: {
+                    blog_id: null,
+                    title: null,
+                    content: null,
+                    create_time: null,
+                    tag_id: null,
+               },
+               status: 'blog_list'
+          },
+          methods: {
+               tag_id2name(tag_id) {
+                    // this 访问到当前的 app 对象
+                    // this.tags 就相当于上面定义的标签数组
+                    for (var index in this.tags) {
+                         if (this.tags[index].tag_id == tag_id) {
+                              return this.tags[index].tag_name;
+                         }
+                    }
+                    return "默认分类";
+               },
+               get_blogs(tag_id) {
+                    var url = '/blog';
+                    // null 空引用 非法对象
+                    if (tag_id != null) {
+                         url = '/blog/?tagid=' + tag_id;
+                    }
+                    // 最核心操作，访问http服务器的数据
+                    // ajax 原生 API 特别难用, Vue 也提供了 API 但是环境配置起来比较麻烦
+                    // 此处我们使用 JQuery 提供的 API
+                    $.ajax({
+                         url: url,
+                         type: 'get',
+                         context: this, // 此处的 this 表示 Vue 对象
+                         success(data, status) {
+                              // data 表示响应的 body 数据
+                              // status 表示响应的状态码
+                              // HTTP 请求执行成功之后要执行的代码
+                              // 在这个代码中更新数据
+                              // 如果不设置 context ， 此时直接使用 this.blogs 会出现错误
+                              // 因为此时的 this 表示当前 $ 这样的 jquery 对象
+                              // 加上 context 之后， this 就表示 context 中的值
+                              this.blogs = data;
+                         }
+                    })
+               },
+               init() {
+                    // 1. 从服务器上获取 tag
+                    $.ajax({
+                         type: "get",
+                         url: "/tag",
+                         context: this,
+                         success: function (data, status) {
+                              this.tags = data;
+                              // 2. 从服务器上获取 博客
+                              // 写在外边 并行执行
+                              // 因为需要先获取到 tag 信息 在获取 博客列表， 否则 tag_id 和 tag_name 映射关系无法正确建立.
+                              this.get_blogs();
+                         }
+                    })
+               },
+               // 点击博客标题调用 这个函数
+               get_blog(blog_id) {
+                    $.ajax({
+                         url: '/blog/' + blog_id,
+                         type: "get",
+                         context: this,
+                         success(data, status) {
+                              this.status = 'blog_get'
+                              // 此时得到的 blog.content 是 markdowm 格式的数据
+                              this.blog = data;
+                              //$('#test-editormd-view').empty();
+                              // 把这个 markdown 数据转换到 html 格式 并且展示在网页上
+                              testEditormdView = editormd.markdownToHTML("blog_view", {
+                                   markdown: this.blog.content,//+ "\r\n" + $("#append-test").text(),
+                                   //htmlDecode      : true,       // 开启 HTML 标签解析，为了安全性，默认不开启
+                                   htmlDecode: "style,script,iframe",  // you can filter tags decode
+                                   //toc             : false,
+                                   tocm: true,    // Using [TOCM]
+                                   //tocContainer    : "#custom-toc-container", // 自定义 ToC 容器层
+                                   //gfm             : false,
+                                   //tocDropdown     : true,
+                                   // markdownSourceCode : true, // 是否保留 Markdown 源码，即是否删除保存源码的 Textarea 标签
+                                   emoji: true,
+                                   taskList: true,
+                                   tex: true,  // 默认不解析
+                                   flowChart: true,  // 默认不解析
+                                   sequenceDiagram: true,  // 默认不解析
+                              });
+                         }
+                    })
+               },
+               delete_blog(blog_id) {
+                    $.ajax({
+                         type: "delete",
+                         url: '/blog/' + blog_id,
+                         context: this,
+                         success: function (data, status) {
+                              this.get_blogs();
+                              alert("删除成功");
+                         }
+                    })
+               },
+               main_page() {
+                    this.status = 'blog_list';
+               },
+               edit_blog(blog_id) {
+                    // 1. 先把之前的博客数据先清空
+                    this.blog = {};
+                    // 2. ajax 获取到当前点击的博客内容
+                    $.ajax({
+                         type: "get",
+                         url: "/blog/" + blog_id,
+                         context: this,
+                         success: function (data, status) {
+                              this.blog = data;
+                              // 3. 根据数据加载 markdown 编辑器
+                              testEditor = editormd("blog_view", {
+                                   width: "90%",
+                                   height: "700px",
+                                   syncScrolling: "single",
+                                   path: "editor.md/lib/"
+                              });
+                              this.status = 'blog_edit'
+                         }
+                    })
+               },
+               insert_edit_blog() {
+                    this.blog = {};
+
+                    $(function () {
+                         InsertEditor = editormd("blog_view", {
+                              width: "90%",
+                              height: 640,
+                              syncScrolling: "single",
+                              path: "editor.md/lib/"
+                         });
+
+                         /*
+                         // or
+                         testEditor = editormd({
+                             id      : "test-editormd",
+                             width   : "90%",
+                             height  : 640,
+                             path    : "../lib/"
+                         });
+                         */
+                    });
+
+
+                    this.status = 'insert_blog_edit'
+               },
+               back() {
+                    this.blog = {};
+                    this.status = 'blog_list'
+               },
+               update_blog(blog_id) {
+                    // 从编辑器过去修改后的 markdown
+                    var content = testEditor.getMarkdown();
+                    var body = {
+                         title: this.blog.title,
+                         content: content, // 这是修改后的内容
+                         tag_id: this.blog.tag_id
+                    }
+                    $.ajax({
+                         type: "put",
+                         url: "/blog/" + blog_id,
+                         data: JSON.stringify(body),
+                         contentType: 'application/json;charset=utf-8',
+                         context: this,
+                         success: function (data, status) {
+                              this.get_blogs();
+                              alert("提交成功");
+                              this.back();
+                         }
+
+                    })
+               },
+               insert_blog() {
+                    var content = InsertEditor.getMarkdown();
+                    var date = new Date();
+                    var create_time = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "  " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+                    var body = {
+                         title: this.blog.title,
+                         content: content,
+                         tag_id: this.blog.tag_id,
+                         create: create_time
+                    }
+                    $.ajax({
+                         type: "post",
+                         url: "/blog",
+                         data: JSON.stringify(body),
+                         contentType: 'application/json;charset=utf-8',
+                         context: this,
+                         success(data, status) {
+                              alert("新增成功");
+                              this.back;
+                         }
+
+                    })
+               }
+          },
+     });
+     // 初始化的获取数据操作
+     app.init();
+</script>
+
+</body>
+</html>
